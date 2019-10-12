@@ -14,7 +14,7 @@ spec:
         name: containerdisk
       - disk:
           bus: virtio
-        name: mydisk
+        name: vol-mds
       - disk:
           bus: virtio
         name: cloudinitdisk
@@ -33,7 +33,8 @@ spec:
       image: dlambrig/centos7-lustre:latest
     name: containerdisk
   - cloudInitNoCloud:
-      userData: |
-        #!/bin/bash
-        hostname mds
+      userData: |-
+        #cloud-config
+        password: centos
+        chpasswd: { expire: False }
     name: cloudinitdisk

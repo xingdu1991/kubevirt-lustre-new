@@ -14,9 +14,6 @@ spec:
         name: containerdisk
       - disk:
           bus: virtio
-        name: mydisk
-      - disk:
-          bus: virtio
         name: cloudinitdisk
       rng: {}
     machine:
@@ -26,9 +23,6 @@ spec:
         memory: 1024M
   terminationGracePeriodSeconds: 0
   volumes:
-  - name: mydisk
-    persistentVolumeClaim:
-      claimName: mydisk
   - containerDisk:
       image: dlambrig/centos7:latest
     name: containerdisk
