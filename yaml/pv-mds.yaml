@@ -4,12 +4,12 @@ metadata:
   name: pv-mds
 spec:
   capacity:
-    storage: 5Gi
+    storage: 1Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
   storageClassName: manual
   hostPath:
-    path: /users/dlambrig/disk
+    path: /home/centos/disk
 

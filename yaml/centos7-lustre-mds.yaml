@@ -30,7 +30,7 @@ spec:
     persistentVolumeClaim:
       claimName: vol-mds
   - containerDisk:
-      image: dlambrig/centos7-lustre:latest
+      image: dlambrig/centos7:latest
     name: containerdisk
   - cloudInitNoCloud:
       userData: |-
