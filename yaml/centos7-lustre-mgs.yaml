@@ -4,7 +4,7 @@ kind: VirtualMachineInstance
 metadata:
   labels:
     special: key
-  name: vmi-centos7-lustre-oss
+  name: vmi-centos7-lustre-mgs
 spec:
   domain:
     devices:
@@ -14,10 +14,7 @@ spec:
         name: containerdisk
       - disk:
           bus: virtio
-        name: vol-oss1
-      - disk:
-          bus: virtio
-        name: vol-oss2
+        name: vol-mgs
       - disk:
           bus: virtio
         name: cloudinitdisk
@@ -29,17 +26,14 @@ spec:
         memory: 1024M
   terminationGracePeriodSeconds: 0
   volumes:
-  - name: vol-oss1
+  - name: vol-mgs
     persistentVolumeClaim:
-      claimName: vol-oss1
-  - name: vol-oss2
-    persistentVolumeClaim:
-      claimName: vol-oss2
+      claimName: vol-mgs
   - containerDisk:
-      image: dlambrig/centos7-lustre:latest
+      image: dlambrig/centos7:latest
     name: containerdisk
   - cloudInitNoCloud:
-      userData: |
+      userData: |-
         #cloud-config
         password: centos
         chpasswd: { expire: False }
